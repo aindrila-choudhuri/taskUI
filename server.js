@@ -13,7 +13,6 @@ app.get('/tasks', (req, res) => {
 });
 
 app.get('/frames', (req, res) => {
-    console.log("req------", imageDir + '/set' + req.query.task);
     fs.readdir(imageDir + '/set' + req.query.task, function (err, files) {
         let contents = [];
         let promises = [];

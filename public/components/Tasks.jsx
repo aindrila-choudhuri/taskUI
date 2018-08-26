@@ -1,6 +1,7 @@
 const React = require("react");
 const axios = require('axios');
 import './styles.css';
+import RenderImages from "./RenderImages";
 
 export default class Tasks extends React.Component {
     constructor(props) {
@@ -12,7 +13,6 @@ export default class Tasks extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick(value) {
-        //alert(value);
         axios.get('http://localhost:4421/frames', {
             params: {
                 task: value+1
@@ -25,9 +25,7 @@ export default class Tasks extends React.Component {
     }
 
     componentDidMount() {
-        //alert("dada");
         axios.get('http://localhost:4421/tasks').then((response) => {
-            //alert(response.data);
             this.setState({
                 tasks: response.data
             });
@@ -36,7 +34,7 @@ export default class Tasks extends React.Component {
 
     renderTasks() {
         return this.state.tasks.map((val, index) => {
-            return <div className="task" onClick={() => this.handleClick(index)}>
+            return <div className="task" key={index} onClick={() => this.handleClick(index)}>
                 Task {index + 1}
             </div>
         })
@@ -57,8 +55,8 @@ export default class Tasks extends React.Component {
                     </div>
                     {tasks}
                 </div>
-                <div class="main-layout">
-                    {this.state.imageUrls}
+                <div className="main-layout">
+                    <RenderImages imageUrls={this.state.imageUrls}/>
                 </div>
             </div>
         );

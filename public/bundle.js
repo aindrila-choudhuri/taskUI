@@ -1766,7 +1766,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "h2 {\r\n    margin-top: 0;\r\n}\r\n\r\n.layout-row {\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n\r\n.layout-align-space-between {\r\n    justify-content: space-between;\r\n}\r\n\r\n.sidebar {\r\n    width: 300px;\r\n    background: white;\r\n    border-right: solid 1px #f3f3f3;\r\n    padding: 24px;\r\n}\r\n\r\n.main-layout {\r\n    width: 100%;\r\n    padding: 24px;\r\n}\r\n\r\n.task {\r\n    padding: 16px;\r\n    border-bottom: solid 1px #f3f3f3;\r\n    transition: all 0.6s ease;\r\n}\r\n\r\n.task:hover {\r\n    background: #c3ccdd;\r\n    border-radius: 20px;\r\n}\r\n\r\n.task:last-child {\r\n    border-bottom: none;\r\n}\r\n\r\n.dt-sidebar {\r\n    background: #232836;\r\n    width: 85px;\r\n    min-width: 85px;\r\n    height: 100%;\r\n    color: #a4a6ab;\r\n}\r\n\r\n.dt-sidebar .button {\r\n    background: white;\r\n    border-radius: 4px;\r\n    margin: 16px auto;\r\n    width: 40px;\r\n    height: 40px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    color: #232836;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n.dt-sidebar .button:hover {\r\n    border-radius: 50%;\r\n}\r\n\r\n.logo {\r\n    background: url(https://drishti.com/wp-content/uploads/2018/04/drishti-logo-white.svg) no-repeat;\r\n    background-size: cover;\r\n    width: 40px;\r\n    height: 40px;\r\n    margin: 24px auto;\r\n}\r\n\r\n.container {\r\n    height: 100%;\r\n}\r\n.flightSearch {\r\n    margin: 10px 10px 0 5%;\r\n    padding: 35px;\r\n    border-radius: 5px;\r\n  }\r\n  \r\n  .tabs {\r\n    display: flex;\r\n    list-style: none;  \r\n    padding: 5px;  \r\n  }\r\n  \r\n  .tab {\r\n    margin-right: 10px;\r\n    border-radius: 5px;\r\n    padding: 5px;  \r\n    cursor: pointer;\r\n  }\r\n  \r\n  .tab.active {\r\n    background: #a499d3;  \r\n  }\r\n  \r\n  .input {\r\n    width: 100%;\r\n    margin-top: 10px;\r\n    padding: 10px;\r\n    border: 2px solid #ccc;\r\n    border-radius: 5px;\r\n  \r\n  }\r\n  \r\n  .passengers {\r\n    display: flex;\r\n    margin-top: 20px;\r\n    margin-bottom: 30px;  \r\n    white-space: nowrap;\r\n  }\r\n  \r\n  .passenger__type {\r\n    font-weight: bolder;\r\n    line-height: 35px;\r\n    margin-right: 10px;\r\n  }\r\n\r\n  .passenger__count {\r\n    font-weight: bolder;\r\n    line-height: 35px;\r\n    margin-right: 10px;\r\n    margin-left: 60px\r\n  }\r\n  \r\n  .button {\r\n    width: 35px;\r\n    height: 35px;\r\n    outline: none;\r\n    border-radius: 5px;\r\n    margin-right: 5px; \r\n    font-size: 25px;\r\n    border: 2px solid;  \r\n  }\r\n  \r\n  .price-range__label {\r\n    margin-bottom: 30px;\r\n    font-size: 15px;\r\n    color: #000;\r\n    font-weight: bolder;\r\n  }\r\n  \r\n  .input-range__label-container {\r\n    color: #000;\r\n  }\r\n  \r\n  .input-range__track {\r\n    background: #35ffab;\r\n  }\r\n  \r\n  .input-range__track--active {\r\n    background: #5335ff;\r\n  }\r\n  \r\n  .form__submit {\r\n    width: 100px;\r\n    height: 40px;\r\n    outline: none;\r\n    padding: 10px;\r\n    margin-top: 50px;\r\n    font-size: 15px;\r\n    font-weight: bolder;\r\n    border-radius: 5px;\r\n    background: #5335ff;\r\n    border: 2px solid;\r\n  }", ""]);
+exports.push([module.i, "imageStyle {\r\n    height: 20;\r\n    width: 20;\r\n}\r\n\r\nh2 {\r\n    margin-top: 0;\r\n}\r\n\r\n.layout-row {\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n\r\n.layout-align-space-between {\r\n    justify-content: space-between;\r\n}\r\n\r\n.sidebar {\r\n    width: 300px;\r\n    background: white;\r\n    border-right: solid 1px #f3f3f3;\r\n    padding: 24px;\r\n}\r\n\r\n.main-layout {\r\n    width: 100%;\r\n    padding: 24px;\r\n}\r\n\r\n.task {\r\n    padding: 16px;\r\n    border-bottom: solid 1px #f3f3f3;\r\n    transition: all 0.6s ease;\r\n}\r\n\r\n.task:hover {\r\n    background: #c3ccdd;\r\n    border-radius: 20px;\r\n}\r\n\r\n.task:last-child {\r\n    border-bottom: none;\r\n}\r\n\r\n.dt-sidebar {\r\n    background: #232836;\r\n    width: 85px;\r\n    min-width: 85px;\r\n    height: 100%;\r\n    color: #a4a6ab;\r\n}\r\n\r\n.dt-sidebar .button {\r\n    background: white;\r\n    border-radius: 4px;\r\n    margin: 16px auto;\r\n    width: 40px;\r\n    height: 40px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    color: #232836;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n.dt-sidebar .button:hover {\r\n    border-radius: 50%;\r\n}\r\n\r\n.logo {\r\n    background: url(https://drishti.com/wp-content/uploads/2018/04/drishti-logo-white.svg) no-repeat;\r\n    background-size: cover;\r\n    width: 40px;\r\n    height: 40px;\r\n    margin: 24px auto;\r\n}\r\n\r\n.container {\r\n    height: 100%;\r\n}\r\n.flightSearch {\r\n    margin: 10px 10px 0 5%;\r\n    padding: 35px;\r\n    border-radius: 5px;\r\n  }\r\n  \r\n  .tabs {\r\n    display: flex;\r\n    list-style: none;  \r\n    padding: 5px;  \r\n  }\r\n  \r\n  .tab {\r\n    margin-right: 10px;\r\n    border-radius: 5px;\r\n    padding: 5px;  \r\n    cursor: pointer;\r\n  }\r\n  \r\n  .tab.active {\r\n    background: #a499d3;  \r\n  }\r\n  \r\n  .input {\r\n    width: 100%;\r\n    margin-top: 10px;\r\n    padding: 10px;\r\n    border: 2px solid #ccc;\r\n    border-radius: 5px;\r\n  \r\n  }\r\n  \r\n  .passengers {\r\n    display: flex;\r\n    margin-top: 20px;\r\n    margin-bottom: 30px;  \r\n    white-space: nowrap;\r\n  }\r\n  \r\n  .passenger__type {\r\n    font-weight: bolder;\r\n    line-height: 35px;\r\n    margin-right: 10px;\r\n  }\r\n\r\n  .passenger__count {\r\n    font-weight: bolder;\r\n    line-height: 35px;\r\n    margin-right: 10px;\r\n    margin-left: 60px\r\n  }\r\n  \r\n  .button {\r\n    width: 35px;\r\n    height: 35px;\r\n    outline: none;\r\n    border-radius: 5px;\r\n    margin-right: 5px; \r\n    font-size: 25px;\r\n    border: 2px solid;  \r\n  }\r\n  \r\n  .price-range__label {\r\n    margin-bottom: 30px;\r\n    font-size: 15px;\r\n    color: #000;\r\n    font-weight: bolder;\r\n  }\r\n  \r\n  .input-range__label-container {\r\n    color: #000;\r\n  }\r\n  \r\n  .input-range__track {\r\n    background: #35ffab;\r\n  }\r\n  \r\n  .input-range__track--active {\r\n    background: #5335ff;\r\n  }\r\n  \r\n  .form__submit {\r\n    width: 100px;\r\n    height: 40px;\r\n    outline: none;\r\n    padding: 10px;\r\n    margin-top: 50px;\r\n    font-size: 15px;\r\n    font-weight: bolder;\r\n    border-radius: 5px;\r\n    background: #5335ff;\r\n    border: 2px solid;\r\n  }", ""]);
 
 // exports
 
@@ -22503,6 +22503,76 @@ ReactDOM.render(React.createElement(_Tasks2.default, null), document.getElementB
 
 /***/ }),
 
+/***/ "./public/components/RenderImages.jsx":
+/*!********************************************!*\
+  !*** ./public/components/RenderImages.jsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(/*! ./styles.css */ "./public/components/styles.css");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var RenderImages = function (_React$Component) {
+  _inherits(RenderImages, _React$Component);
+
+  function RenderImages() {
+    _classCallCheck(this, RenderImages);
+
+    return _possibleConstructorReturn(this, (RenderImages.__proto__ || Object.getPrototypeOf(RenderImages)).apply(this, arguments));
+  }
+
+  _createClass(RenderImages, [{
+    key: "renderImage",
+    value: function renderImage(imageUrl, index) {
+      return React.createElement(
+        "div",
+        { className: "imageStyle", key: index },
+        React.createElement("img", { src: imageUrl })
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "div",
+          null,
+          this.props.imageUrls.map(function (imageUrl, index) {
+            return _this2.renderImage(imageUrl, index);
+          })
+        )
+      );
+    }
+  }]);
+
+  return RenderImages;
+}(React.Component);
+
+exports.default = RenderImages;
+
+/***/ }),
+
 /***/ "./public/components/Tasks.jsx":
 /*!*************************************!*\
   !*** ./public/components/Tasks.jsx ***!
@@ -22520,6 +22590,12 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 __webpack_require__(/*! ./styles.css */ "./public/components/styles.css");
+
+var _RenderImages = __webpack_require__(/*! ./RenderImages */ "./public/components/RenderImages.jsx");
+
+var _RenderImages2 = _interopRequireDefault(_RenderImages);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -22551,7 +22627,6 @@ var Tasks = function (_React$Component) {
         value: function handleClick(value) {
             var _this2 = this;
 
-            //alert(value);
             axios.get('http://localhost:4421/frames', {
                 params: {
                     task: value + 1
@@ -22567,9 +22642,7 @@ var Tasks = function (_React$Component) {
         value: function componentDidMount() {
             var _this3 = this;
 
-            //alert("dada");
             axios.get('http://localhost:4421/tasks').then(function (response) {
-                //alert(response.data);
                 _this3.setState({
                     tasks: response.data
                 });
@@ -22583,7 +22656,7 @@ var Tasks = function (_React$Component) {
             return this.state.tasks.map(function (val, index) {
                 return React.createElement(
                     'div',
-                    { className: 'task', onClick: function onClick() {
+                    { className: 'task', key: index, onClick: function onClick() {
                             return _this4.handleClick(index);
                         } },
                     'Task ',
@@ -22622,8 +22695,8 @@ var Tasks = function (_React$Component) {
                 ),
                 React.createElement(
                     'div',
-                    { 'class': 'main-layout' },
-                    this.state.imageUrls
+                    { className: 'main-layout' },
+                    React.createElement(_RenderImages2.default, { imageUrls: this.state.imageUrls })
                 )
             );
         }
