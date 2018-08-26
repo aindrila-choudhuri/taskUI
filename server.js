@@ -13,22 +13,22 @@ app.get('/tasks', (req, res) => {
 });
 
 app.get('/frames', (req, res) => {
-    fs.readdir(imageDir + '/set1', function (err, files) {
+    console.log("req------", imageDir + '/set' + req.query.task);
+    fs.readdir(imageDir + '/set' + req.query.task, function (err, files) {
         let contents = [];
         let promises = [];
         files.forEach(file => {
-            console.log(file);
             let imagePath = imageDir + '/set1/' + file;
-            res.sendFile(path.join(__dirname, imagePath));
+            let content = path.join(__dirname, imagePath);
+            contents.push(content);
         });
+        res.send(contents);
     });
 });
 
 app.post('/tasks', (req, res) => {
     console.log("saved");
 })
-
-
 
 app.listen(4421, () => {
     console.log("Express server is up on port 4421");

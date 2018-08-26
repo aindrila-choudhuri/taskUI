@@ -1,0 +1,169 @@
+h2 {
+    margin-top: 0;
+}
+
+.layout-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.layout-align-space-between {
+    justify-content: space-between;
+}
+
+.sidebar {
+    width: 300px;
+    background: white;
+    border-right: solid 1px #f3f3f3;
+    padding: 24px;
+}
+
+.main-layout {
+    width: 100%;
+    padding: 24px;
+}
+
+.task {
+    padding: 16px;
+    border-bottom: solid 1px #f3f3f3;
+    transition: all 0.6s ease;
+}
+
+.task:hover {
+    background: #c3ccdd;
+    border-radius: 20px;
+}
+
+.task:last-child {
+    border-bottom: none;
+}
+
+.dt-sidebar {
+    background: #232836;
+    width: 85px;
+    min-width: 85px;
+    height: 100%;
+    color: #a4a6ab;
+}
+
+.dt-sidebar .button {
+    background: white;
+    border-radius: 4px;
+    margin: 16px auto;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #232836;
+    transition: all 0.3s ease;
+}
+
+.dt-sidebar .button:hover {
+    border-radius: 50%;
+}
+
+.logo {
+    background: url(https://drishti.com/wp-content/uploads/2018/04/drishti-logo-white.svg) no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: 24px auto;
+}
+
+.container {
+    height: 100%;
+}
+.flightSearch {
+    margin: 10px 10px 0 5%;
+    padding: 35px;
+    border-radius: 5px;
+  }
+  
+  .tabs {
+    display: flex;
+    list-style: none;  
+    padding: 5px;  
+  }
+  
+  .tab {
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 5px;  
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background: #a499d3;  
+  }
+  
+  .input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  
+  }
+  
+  .passengers {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;  
+    white-space: nowrap;
+  }
+  
+  .passenger__type {
+    font-weight: bolder;
+    line-height: 35px;
+    margin-right: 10px;
+  }
+
+  .passenger__count {
+    font-weight: bolder;
+    line-height: 35px;
+    margin-right: 10px;
+    margin-left: 60px
+  }
+  
+  .button {
+    width: 35px;
+    height: 35px;
+    outline: none;
+    border-radius: 5px;
+    margin-right: 5px; 
+    font-size: 25px;
+    border: 2px solid;  
+  }
+  
+  .price-range__label {
+    margin-bottom: 30px;
+    font-size: 15px;
+    color: #000;
+    font-weight: bolder;
+  }
+  
+  .input-range__label-container {
+    color: #000;
+  }
+  
+  .input-range__track {
+    background: #35ffab;
+  }
+  
+  .input-range__track--active {
+    background: #5335ff;
+  }
+  
+  .form__submit {
+    width: 100px;
+    height: 40px;
+    outline: none;
+    padding: 10px;
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: bolder;
+    border-radius: 5px;
+    background: #5335ff;
+    border: 2px solid;
+  }

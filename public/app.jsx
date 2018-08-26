@@ -1,8 +1,8 @@
 const React = require("react");
 const ReactDOM = require("react-dom");
-import FlexiCaller from "./components/Tasks";
+import Tasks from "./components/Tasks";
 
 ReactDOM.render(
-    <FlexiCaller />,
+    <Tasks />,
     document.getElementById('app')
 );
