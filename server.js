@@ -4,52 +4,30 @@ const path = require('path')
 const Promise = require('promise');
 
 const app = express();
-const imageDir = './public/images/set1';
+const imageDir = './public/images';
 app.use(express.static('public'));
 
 app.get('/tasks', (req, res) => {
-    getImages(imageDir).then((contents) => {
-        res.writeHead(200, { 'Content-type': 'text/html' });
-        res.end(contents);
-    })
+    const getDirectories = srcPath => fs.readdirSync(imageDir).filter(file => fs.statSync(path.join(imageDir, file)).isDirectory())
+    res.send(getDirectories());
 });
 
-
-function readFileAsync(file, encoding) {
-    return new Promise((resolve, reject) => {
-        fs.readFile(file, (err, data) => {
-            if (err) return reject(err) // rejects the promise with `err` as the reason
-            resolve(data)               // fulfills the promise with `data` as the value
-        })
-    })
-}
-
-
-function getImages(imageDir) {
-    return new Promise((resolve, reject) => {
-        var fileType = '.jpg',
-            files = [], i;
-        fs.readdir(imageDir, function (err, list) {
-            let contents = [];
-            let promises = [];
-            files.forEach(file => {
-                console.log(file);
-                let imagePath = imageDir + '/' + file;
-                let promise = readFileAsync(imagePath).then((data) => {
-                    contents.push(data);
-                })
-                promises.push(promise);
-
-            });
-            Promise.all(promises).then(() => {
-                resolve(contents);
-            }
-            )
-
+app.get('/frames', (req, res) => {
+    fs.readdir(imageDir + '/set1', function (err, files) {
+        let contents = [];
+        let promises = [];
+        files.forEach(file => {
+            console.log(file);
+            let imagePath = imageDir + '/set1/' + file;
+            res.sendFile(path.join(__dirname, imagePath));
         });
     });
+});
 
-}
+app.post('/tasks', (req, res) => {
+    console.log("saved");
+})
+
 
 
 app.listen(4421, () => {
