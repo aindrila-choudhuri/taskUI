@@ -39723,39 +39723,56 @@ var RenderImages = function (_React$Component) {
     _this.imageClick = _this.imageClick.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
 
+    //variable to store all the task image URLs to post to api
     _this.taskArr = [];
-    _this.obj = { fromIndex: '', toIndex: '' };
-    _this.changedRefs = [];
 
+    //variable to store the from and to co-ordinates of the selected images
+    _this.obj = { fromIndex: '', toIndex: '' };
+
+    //variable to store the refs off all the images for which the style(opacity has been changed)
+    //on tab changes the style is reset to original values.
+    _this.changedRefs = [];
     return _this;
   }
+
+  //event gets fired on click of any of the images
+  //takes two parameters the rowIndex and columnIndex of the image
+
 
   _createClass(RenderImages, [{
     key: 'imageClick',
     value: function imageClick(columnIndex, rowIndex) {
+      //logic to store the fromIndex and toIndex of the selected cycle on click
       if (this.obj.fromIndex === '') {
         this.obj.fromIndex = {
           columnIndex: columnIndex, rowIndex: rowIndex
         };
       } else {
+        // if the toIndex row is smaller or in the same row of the fromIndex but column index in less in that case 
+        // no need to perform any action
         if (rowIndex < this.obj.fromIndex.rowIndex || rowIndex === this.obj.fromIndex.rowIndex && columnIndex < this.obj.fromIndex.columnIndex) {
           return;
         }
+
         this.obj.toIndex = {
           columnIndex: columnIndex, rowIndex: rowIndex
         };
         var currentRowIndex = this.obj.fromIndex.rowIndex;
         var startIndex = this.obj.fromIndex.columnIndex;
         var endIndex = IMAGES_PER_ROW - 1;
+
+        //if the fromIndex and toIndex is in the same row then change opacity of the images in the which lies between the column index
         if (currentRowIndex === this.obj.toIndex.rowIndex) {
           for (var j = this.obj.fromIndex.columnIndex; j <= this.obj.toIndex.columnIndex; j++) {
             this.refs['imageRefs' + j + currentRowIndex].className = "imageStyleOpacity";
-            //this.refs['imageRefs' + j + currentRowIndex].style.opacity = 0.7;
+            //pushed all the refs for which style has been changed
             this.changedRefs.push(this.refs['imageRefs' + j + currentRowIndex]);
+            //pushed all the task image URLs which has been selected
             this.taskArr.push(this.refs['imageRefs' + j + currentRowIndex].src);
           }
         }
 
+        //if the fromIndex and toIndex are in different column in that case for every column in between style has to chnaged
         if (currentRowIndex < this.obj.toIndex.rowIndex) {
           for (var i = currentRowIndex; i <= this.obj.toIndex.rowIndex; i++) {
             if (i !== this.obj.fromIndex.rowIndex) {
@@ -39766,16 +39783,21 @@ var RenderImages = function (_React$Component) {
             }
             for (var _j = startIndex; _j <= endIndex; _j++) {
               this.refs['imageRefs' + _j + i].className = "imageStyleOpacity";
-              //this.refs['imageRefs' + j + i].style.opacity = 0.7;
+              //pushed all the refs for which style has been changed
               this.changedRefs.push(this.refs['imageRefs' + _j + i]);
+              //pushed all the task image URLs which has been selected
               this.taskArr.push(this.refs['imageRefs' + _j + i].src);
             }
           }
         }
 
+        //once done reset the fromIndex and toIndex
         this.obj = { fromIndex: '', toIndex: '' };
       }
     }
+
+    //method to reset the style on changing of tab (Task)
+
   }, {
     key: 'changeClass',
     value: function changeClass() {
@@ -39789,6 +39811,10 @@ var RenderImages = function (_React$Component) {
         return "imageStyle";
       }
     }
+
+    //method to render images in a particular row
+    //takes parameter images(imageUrls), rowIndex
+
   }, {
     key: 'renderRow',
     value: function renderRow(images, rowIndex) {
@@ -39800,6 +39826,9 @@ var RenderImages = function (_React$Component) {
           } });
       });
     }
+
+    //method to chunk the images in smaller arrays
+
   }, {
     key: 'renderImagesInGroups',
     value: function renderImagesInGroups() {
@@ -39813,6 +39842,9 @@ var RenderImages = function (_React$Component) {
         );
       });
     }
+
+    //event handler for submit button
+
   }, {
     key: 'handleSubmit',
     value: function handleSubmit() {
@@ -39820,6 +39852,9 @@ var RenderImages = function (_React$Component) {
         alert("Saved data successfully");
       });
     }
+
+    //method to show submit button after the task images are loaded
+
   }, {
     key: 'renderButton',
     value: function renderButton() {
@@ -39839,6 +39874,9 @@ var RenderImages = function (_React$Component) {
         );
       }
     }
+
+    //component render method
+
   }, {
     key: 'render',
     value: function render() {
@@ -39912,6 +39950,9 @@ var Tasks = function (_React$Component) {
         return _this;
     }
 
+    //event handler for clicking on Tasks
+
+
     _createClass(Tasks, [{
         key: 'handleClick',
         value: function handleClick(value) {
@@ -39928,6 +39969,9 @@ var Tasks = function (_React$Component) {
                 });
             });
         }
+
+        //GetTask api is called on component did mount
+
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
@@ -39939,6 +39983,9 @@ var Tasks = function (_React$Component) {
                 });
             });
         }
+
+        //dynamically render tasks 
+
     }, {
         key: 'renderTasks',
         value: function renderTasks() {

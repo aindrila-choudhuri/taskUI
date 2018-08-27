@@ -14,6 +14,7 @@ export default class Tasks extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     
+    //event handler for clicking on Tasks
     handleClick(value) {
         axios.get('http://localhost:4421/frames', {
             params: {
@@ -27,6 +28,7 @@ export default class Tasks extends React.Component {
         })
     }
 
+    //GetTask api is called on component did mount
     componentDidMount() {
         axios.get('http://localhost:4421/tasks').then((response) => {
             this.setState({
@@ -35,6 +37,7 @@ export default class Tasks extends React.Component {
         })
     }
 
+    //dynamically render tasks 
     renderTasks() {
         return this.state.tasks.map((val, index) => {
             return <div className="task" key={index} onClick={() => this.handleClick(index)}>
