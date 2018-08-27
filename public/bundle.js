@@ -39768,7 +39768,7 @@ var RenderImages = function (_React$Component) {
             //pushed all the refs for which style has been changed
             this.changedRefs.push(this.refs['imageRefs' + j + currentRowIndex]);
             //pushed all the task image URLs which has been selected
-            this.taskArr.push(this.refs['imageRefs' + j + currentRowIndex].src);
+            this.taskArr.push({ imageUrl: this.refs['imageRefs' + j + currentRowIndex].src });
           }
         }
 
@@ -39786,7 +39786,7 @@ var RenderImages = function (_React$Component) {
               //pushed all the refs for which style has been changed
               this.changedRefs.push(this.refs['imageRefs' + _j + i]);
               //pushed all the task image URLs which has been selected
-              this.taskArr.push(this.refs['imageRefs' + _j + i].src);
+              this.taskArr.push({ imageUrl: this.refs['imageRefs' + _j + i].src });
             }
           }
         }
@@ -39848,7 +39848,8 @@ var RenderImages = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit() {
-      axios.post('http://localhost:4421/tasks', { taskArray: this.taskArr }).then(function (response) {
+      console.log("this.taskArr", _lodash2.default.uniqBy(this.taskArr, 'imageUrl'));
+      axios.post('http://localhost:4421/tasks', { taskArray: _lodash2.default.uniqBy(this.taskArr, 'imageUrl') }).then(function (response) {
         alert("Saved data successfully");
       });
     }
@@ -40009,7 +40010,6 @@ var Tasks = function (_React$Component) {
         key: 'render',
         value: function render() {
             var tasks = this.renderTasks();
-            console.log("this.state.imageUrls.length", this.state.imageUrls.length);
             return React.createElement(
                 'div',
                 { className: 'layout-row container' },

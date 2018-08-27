@@ -54,7 +54,7 @@ export default class RenderImages extends React.Component {
           //pushed all the refs for which style has been changed
           this.changedRefs.push(this.refs['imageRefs' + j + currentRowIndex]);
           //pushed all the task image URLs which has been selected
-          this.taskArr.push(this.refs['imageRefs' + j + currentRowIndex].src);
+          this.taskArr.push({imageUrl :this.refs['imageRefs' + j + currentRowIndex].src});
         }
       }
 
@@ -72,7 +72,7 @@ export default class RenderImages extends React.Component {
             //pushed all the refs for which style has been changed
             this.changedRefs.push(this.refs['imageRefs' + j + i]);
             //pushed all the task image URLs which has been selected
-            this.taskArr.push(this.refs['imageRefs' + j + i].src);
+            this.taskArr.push({imageUrl : this.refs['imageRefs' + j + i].src});
           }
         }
       }
@@ -118,7 +118,8 @@ export default class RenderImages extends React.Component {
 
   //event handler for submit button
   handleSubmit() {
-    axios.post('http://localhost:4421/tasks', { taskArray: this.taskArr }).then((response) => {
+    //removed duplicate values from the task Image Array
+    axios.post('http://localhost:4421/tasks', { taskArray: _.uniqBy(this.taskArr, 'imageUrl') }).then((response) => {
       alert("Saved data successfully");
     })
   }

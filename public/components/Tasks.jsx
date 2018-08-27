@@ -49,7 +49,6 @@ export default class Tasks extends React.Component {
     //The component render method
     render() {
         const tasks = this.renderTasks();
-        console.log("this.state.imageUrls.length", this.state.imageUrls.length);
         return (
             <div className="layout-row container">
 
