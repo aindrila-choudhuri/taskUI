@@ -9,7 +9,7 @@ export default class Tasks extends React.Component {
         this.state = {
             tasks: [],
             imageUrls: [],
-            currentTab: 0
+            clicked: false
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -22,7 +22,7 @@ export default class Tasks extends React.Component {
         }).then((response) => {
             this.setState({
                 imageUrls: response.data,
-                currentTab: value+1
+                clicked: true
             });
         })
     }
@@ -61,7 +61,7 @@ export default class Tasks extends React.Component {
                     
                 </div>
                 <div className="main-layout">
-                    <RenderImages imageUrls={this.state.imageUrls} currentTab={this.state.currentTab}/>
+                    <RenderImages imageUrls={this.state.imageUrls} clicked={this.state.clicked}/>
                 </div>
             </div>
         );

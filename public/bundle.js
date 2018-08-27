@@ -39725,10 +39725,8 @@ var RenderImages = function (_React$Component) {
 
     _this.taskArr = [];
     _this.obj = { fromIndex: '', toIndex: '' };
+    _this.changedRefs = [];
 
-    _this.state = {
-      currentTab: 0
-    };
     return _this;
   }
 
@@ -39759,6 +39757,8 @@ var RenderImages = function (_React$Component) {
         if (currentRowIndex === this.obj.toIndex.rowIndex) {
           for (var j = this.obj.fromIndex.columnIndex; j <= this.obj.toIndex.columnIndex; j++) {
             this.refs['imageRefs' + j + currentRowIndex].className = "imageStyleOpacity";
+            //this.refs['imageRefs' + j + currentRowIndex].style.opacity = 0.7;
+            this.changedRefs.push(this.refs['imageRefs' + j + currentRowIndex]);
             this.taskArr.push(this.refs['imageRefs' + j + currentRowIndex].src);
           }
         }
@@ -39773,6 +39773,8 @@ var RenderImages = function (_React$Component) {
             }
             for (var _j = startIndex; _j <= endIndex; _j++) {
               this.refs['imageRefs' + _j + i].className = "imageStyleOpacity";
+              //this.refs['imageRefs' + j + i].style.opacity = 0.7;
+              this.changedRefs.push(this.refs['imageRefs' + _j + i]);
               this.taskArr.push(this.refs['imageRefs' + _j + i].src);
             }
           }
@@ -39782,14 +39784,28 @@ var RenderImages = function (_React$Component) {
       }
     }
   }, {
+    key: 'changeClass',
+    value: function changeClass() {
+
+      console.log("this.props.clicked", this.changedRefs);
+
+      if (this.props.clicked === true) {
+        this.changedRefs.forEach(function (ref) {
+          ref.className = "imageStyle";
+        });
+        return "imageStyle";
+      }
+    }
+  }, {
     key: 'renderRow',
     value: function renderRow(images, rowIndex) {
       var _this2 = this;
 
-      //console.log("=render row called");
       return images.map(function (imageUrl, i) {
-        //console.log("=render row called");
-        return React.createElement('img', { src: imageUrl, className: _this2.props.className, ref: "imageRefs" + i + rowIndex, key: i, onClick: function onClick() {
+        //console.log("=====i===", i);
+        //console.log("=====rowIndex===", rowIndex);
+        console.log(_this2.refs['imageRefs']);
+        return React.createElement('img', { src: imageUrl, className: _this2.changeClass(), ref: "imageRefs" + i + rowIndex, key: i, onClick: function onClick() {
             return _this2.imageClick(i, rowIndex);
           } });
       });
@@ -39901,8 +39917,7 @@ var Tasks = function (_React$Component) {
         _this.state = {
             tasks: [],
             imageUrls: [],
-            currentTab: 0,
-            className: ""
+            clicked: false
         };
         _this.handleClick = _this.handleClick.bind(_this);
         return _this;
@@ -39920,8 +39935,7 @@ var Tasks = function (_React$Component) {
             }).then(function (response) {
                 _this2.setState({
                     imageUrls: response.data,
-                    className: "imageStyle",
-                    currentTab: value + 1
+                    clicked: true
                 });
             });
         }
@@ -39985,7 +39999,7 @@ var Tasks = function (_React$Component) {
                 React.createElement(
                     'div',
                     { className: 'main-layout' },
-                    React.createElement(_RenderImages2.default, { imageUrls: this.state.imageUrls, currentTab: this.state.currentTab, className: this.state.className })
+                    React.createElement(_RenderImages2.default, { imageUrls: this.state.imageUrls, clicked: this.state.clicked })
                 )
             );
         }

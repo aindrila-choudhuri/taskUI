@@ -14,10 +14,9 @@ export default class RenderImages extends React.Component {
 
     this.taskArr = [];
     this.obj = { fromIndex: '', toIndex: '' };
+    this.changedRefs = []
 
-    this.state = {
-      currentTab : 0
-    }
+    
   }
 
   componentWillReceiveProps({currentTab}) {
@@ -43,6 +42,8 @@ export default class RenderImages extends React.Component {
       if (currentRowIndex === this.obj.toIndex.rowIndex) {
         for (let j = this.obj.fromIndex.columnIndex; j <= this.obj.toIndex.columnIndex; j++) {
           this.refs['imageRefs' + j + currentRowIndex].className = "imageStyleOpacity";
+          //this.refs['imageRefs' + j + currentRowIndex].style.opacity = 0.7;
+          this.changedRefs.push(this.refs['imageRefs' + j + currentRowIndex]);
           this.taskArr.push(this.refs['imageRefs' + j + currentRowIndex].src);
         }
       }
@@ -57,6 +58,8 @@ export default class RenderImages extends React.Component {
           }
           for (let j = startIndex; j <= endIndex; j++) {
             this.refs['imageRefs' + j + i].className = "imageStyleOpacity";
+            //this.refs['imageRefs' + j + i].style.opacity = 0.7;
+            this.changedRefs.push(this.refs['imageRefs' + j + i]);
             this.taskArr.push(this.refs['imageRefs' + j + i].src);
           }
         }
@@ -66,10 +69,19 @@ export default class RenderImages extends React.Component {
     }
   }
 
+  changeClass(){
+    if (this.props.clicked === true) {
+      this.changedRefs.forEach((ref) => {
+        ref.className="imageStyle";
+      })
+      return "imageStyle";
+    }
+  }
+
   renderRow(images, rowIndex) {
     return images.map((imageUrl, i) => {
       return (
-        <img src={imageUrl} className="imageStyle" ref={"imageRefs" + i + rowIndex} key={i} onClick={() => this.imageClick(i, rowIndex)} />
+        <img src={imageUrl} className={this.changeClass()} ref={"imageRefs" + i + rowIndex} key={i} onClick={() => this.imageClick(i, rowIndex)} />
       );
     })
   }

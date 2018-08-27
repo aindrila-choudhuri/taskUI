@@ -1,14 +1,12 @@
 const express = require("express");
 const fs = require('fs');
 const path = require('path')
-const Promise = require('promise');
 
 const app = express();
 const bodyParser = require('body-parser')
 app.use( bodyParser.json() );  
 const imageDir = './public/images';
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.get('/tasks', (req, res) => {
     const getDirectories = srcPath => fs.readdirSync(imageDir).filter(file => fs.statSync(path.join(imageDir, file)).isDirectory())
