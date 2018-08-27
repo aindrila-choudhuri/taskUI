@@ -39731,13 +39731,6 @@ var RenderImages = function (_React$Component) {
   }
 
   _createClass(RenderImages, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref) {
-      var currentTab = _ref.currentTab;
-
-      this.setState({ currentTab: currentTab });
-    }
-  }, {
     key: 'imageClick',
     value: function imageClick(columnIndex, rowIndex) {
       if (this.obj.fromIndex === '') {
@@ -39786,13 +39779,13 @@ var RenderImages = function (_React$Component) {
   }, {
     key: 'changeClass',
     value: function changeClass() {
-
-      console.log("this.props.clicked", this.changedRefs);
-
       if (this.props.clicked === true) {
-        this.changedRefs.forEach(function (ref) {
-          ref.className = "imageStyle";
-        });
+        if (this.changedRefs.length) {
+          this.changedRefs.forEach(function (ref) {
+            ref.className = "imageStyle";
+          });
+        }
+
         return "imageStyle";
       }
     }
@@ -39802,9 +39795,6 @@ var RenderImages = function (_React$Component) {
       var _this2 = this;
 
       return images.map(function (imageUrl, i) {
-        //console.log("=====i===", i);
-        //console.log("=====rowIndex===", rowIndex);
-        console.log(_this2.refs['imageRefs']);
         return React.createElement('img', { src: imageUrl, className: _this2.changeClass(), ref: "imageRefs" + i + rowIndex, key: i, onClick: function onClick() {
             return _this2.imageClick(i, rowIndex);
           } });
@@ -39815,7 +39805,6 @@ var RenderImages = function (_React$Component) {
     value: function renderImagesInGroups() {
       var _this3 = this;
 
-      console.log("=render images in group called");
       return _lodash2.default.chunk(this.props.imageUrls, IMAGES_PER_ROW).map(function (imagesForRow, i) {
         return React.createElement(
           'div',

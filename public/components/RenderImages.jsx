@@ -19,10 +19,6 @@ export default class RenderImages extends React.Component {
     
   }
 
-  componentWillReceiveProps({currentTab}) {
-    this.setState({currentTab});
-  }
-
   imageClick(columnIndex, rowIndex) {
     if (this.obj.fromIndex === '') {
       this.obj.fromIndex = {
@@ -71,9 +67,12 @@ export default class RenderImages extends React.Component {
 
   changeClass(){
     if (this.props.clicked === true) {
-      this.changedRefs.forEach((ref) => {
-        ref.className="imageStyle";
-      })
+      if (this.changedRefs.length) {
+        this.changedRefs.forEach((ref) => {
+          ref.className="imageStyle";
+        })
+      }
+      
       return "imageStyle";
     }
   }
@@ -87,7 +86,6 @@ export default class RenderImages extends React.Component {
   }
 
   renderImagesInGroups() {
-    console.log("=render images in group called");
     return _.chunk(this.props.imageUrls, IMAGES_PER_ROW).map((imagesForRow, i) => {
       return (
         <div ref={"row" + i} key={i}>
