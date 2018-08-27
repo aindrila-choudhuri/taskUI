@@ -8,10 +8,12 @@ export default class Tasks extends React.Component {
         super(props);
         this.state = {
             tasks: [],
-            imageUrls: []
+            imageUrls: [],
+            currentTab: 0
         }
         this.handleClick = this.handleClick.bind(this);
     }
+    
     handleClick(value) {
         axios.get('http://localhost:4421/frames', {
             params: {
@@ -19,7 +21,8 @@ export default class Tasks extends React.Component {
             }
         }).then((response) => {
             this.setState({
-                imageUrls: response.data
+                imageUrls: response.data,
+                currentTab: value+1
             });
         })
     }
@@ -43,6 +46,7 @@ export default class Tasks extends React.Component {
     //The component render method
     render() {
         const tasks = this.renderTasks();
+        console.log("this.state.imageUrls.length", this.state.imageUrls.length);
         return (
             <div className="layout-row container">
 
@@ -54,9 +58,10 @@ export default class Tasks extends React.Component {
                         <i className="material-icons">list</i>
                     </div>
                     {tasks}
+                    
                 </div>
                 <div className="main-layout">
-                    <RenderImages imageUrls={this.state.imageUrls}/>
+                    <RenderImages imageUrls={this.state.imageUrls} currentTab={this.state.currentTab}/>
                 </div>
             </div>
         );

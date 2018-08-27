@@ -4,8 +4,11 @@ const path = require('path')
 const Promise = require('promise');
 
 const app = express();
+const bodyParser = require('body-parser')
+app.use( bodyParser.json() );  
 const imageDir = './public/images';
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+//app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.get('/tasks', (req, res) => {
     const getDirectories = srcPath => fs.readdirSync(imageDir).filter(file => fs.statSync(path.join(imageDir, file)).isDirectory())
@@ -17,16 +20,17 @@ app.get('/frames', (req, res) => {
         let contents = [];
         let promises = [];
         files.forEach(file => {
-            let imagePath = imageDir + '/set1/' + file;
-            let content = path.join(__dirname, imagePath);
+            let imagePath = './images/set'+req.query.task+'/';
+            let content = path.join(imagePath, file);
             contents.push(content);
         });
+        
         res.send(contents);
     });
 });
 
 app.post('/tasks', (req, res) => {
-    console.log("saved");
+    res.send(req.body);
 })
 
 app.listen(4421, () => {

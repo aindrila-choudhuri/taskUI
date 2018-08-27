@@ -18,9 +18,11 @@
   "homepage": "https://github.com/aindrila-choudhuri/taskUI#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "create-react-class": "^15.6.3",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^3.0.2",
+    "lodash": "^4.17.10",
     "promise": "^8.0.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
